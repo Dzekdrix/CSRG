@@ -178,7 +178,7 @@ function get-controllers {
         [Parameter()]
         [string]$iloRestExePath = 'C:\Program Files\Hewlett Packard Enterprise\RESTful Interface Tool\ilorest.exe'
     )
-    & $iloRestExePath select PCIeDevice.v1_5_0 | out-null
+    & $iloRestExePath select PCIeDevice | out-null
     $PCIDevicesJSON = & $iloRestExePath list -j 
     $PCIDevices = $PCIDevicesJSON | ConvertFrom-Json
     $controllers = @()
@@ -200,7 +200,7 @@ function get-disks {
         [string]$iloRestExePath = 'C:\Program Files\Hewlett Packard Enterprise\RESTful Interface Tool\ilorest.exe'
     )
     ##Recupération des disques
-    & $iloRestExePath  select Drive.v1_17_0 | out-null
+    & $iloRestExePath  select Drive| out-null
     $disksInfosJson = & $iloRestExePath list --json
     $disksInfosJson = [string]$disksInfosJson
     $disksInfos = ConvertFrom-Json -inputObject $disksInfosJson
