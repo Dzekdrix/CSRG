@@ -42,13 +42,13 @@ if (!$check_MediaErrors) {
 
 Function Get-Storage-Executable-Path () {
     $programPaths = (
-        'C:\Program Files\Hewlett Packard Enterprise\RESTful Interface Tool\ilorest.exe',
     	'C:\Program Files\HP\HPSSACLI\bin\hpssacli.exe',
         'C:\Program Files\HP\HPACUCLI\Bin\hpacucli.exe',
         'C:\Program Files\Compaq\HPACUCLI\Bin\hpacucli.exe',
         'C:\Program Files (x86)\HP\HPACUCLI\Bin\hpacucli.exe',
         'C:\Program Files (x86)\Compaq\HPACUCLI\Bin\hpacucli.exe',
-        'c:\Program Files\Smart Storage Administrator\ssacli\bin\ssacli.exe'
+        'c:\Program Files\Smart Storage Administrator\ssacli\bin\ssacli.exe',
+        'C:\Program Files\Hewlett Packard Enterprise\RESTful Interface Tool\ilorest.exe'
     );
     
     foreach ($path in $programPaths) {
