@@ -10,7 +10,16 @@ Function Get-iloVersion {
     {
 
         if ( $line -like 'EmbeddedControllerMajorVersion*' ) { $tempString = $line; $tempString = $tempString.replace(" ","").replace("EmbeddedControllerMajorVersion:",""); $iloVersion+="$tempString."}
-        elseif ( $line -like 'EmbeddedControllerMinorVersion*' ) { $tempString = $line; $tempString = $tempString.replace(" ","").replace("EmbeddedControllerMinorVersion:","");$iloVersion+=$tempString}
+        elseif ($line -like 'EmbeddedControllerMinorVersion*' ) 
+        {
+            $tempString = $line
+            $tempString = $tempString.replace(" ","").replace("EmbeddedControllerMinorVersion:","")
+            if($tempString.Length -lt 2)
+            {
+                $tempString = "0$tempString"
+            }
+            $iloVersion+=$tempString
+        }
     }
 
     return $iloVersion
